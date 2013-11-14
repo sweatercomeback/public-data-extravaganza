@@ -84,6 +84,9 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>SolutionInfo.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +97,16 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PD.API.Model\PD.API.Model.csproj">
+      <Project>{5f7d8a33-3edc-45dd-8b0d-4fa1cfbae6ae}</Project>
+      <Name>PD.API.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PD.API.Services\PD.API.Services.csproj">
+      <Project>{fea4bd8f-a9f2-41bc-91bf-a52f768e3269}</Project>
+      <Name>PD.API.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
