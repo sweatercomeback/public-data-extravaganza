@@ -1,19 +1,67 @@
-<div class="container">
-    <div class="header">
-        <ul class="">
-        <ul class="nav nav-pills pull-right" data-bind="foreach: router.navigationModel">
-        <li data-bind="css: { active: isActive }">
-            <a data-bind="attr: { href: hash }, html: title"></a>
-        </li>
-    </ul>
-           
-        <h3 class="text-muted">yowebapp</h3>
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Rockford Road Construction</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
     </div>
+    <div class="navbar-collapse collapse navbar-responsive-collapse navbar-right">
+      <ul class="nav navbar-nav" data-bind="foreach: router.navigationModel">
+            <li data-bind="css: { active: isActive }">
+                <a data-bind="attr: { href: hash }, html: title"></a>
+            </li>
+		</ul>
+      
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
 
-    <div data-bind="router: { transition:'entrance' }" class="container-fluid"></div>
 
-    <div class="footer">
-        <p>♥ from the Yeoman team</p>
-    </div>
+<div data-bind="router: { transition:'entrance' }" class="container-fluid"></div>
 
+
+<footer role="contentinfo" class="footer">
+    <div class="container">
+        <div class="wrap clearfix" id="inner-footer">
+            <nav role="navigation">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <ul class="footer-nav clearfix" data-bind="foreach: router.navigationModel">
+                            <li data-bind="css: { active: isActive }">
+                                <a data-bind="attr: { href: hash }, html: title"></a>
+                            </li>
+		                </ul>
+                    </div><!--/3-->
+                    <div class="col-md-3 col-sm-3">                
+                    
+                    </div><!--/3-->
+                    <div class="col-md-3 col-sm-3">                
+                    
+                    </div><!--/3-->            
+                    <div class="col-md-3 col-sm-3">
+                        <h4>About Us</h4>  
+                        <p>Aenean volutpat mauris orci, id ornare magna commodo ac. Donec non facilisis lorem. Vivamus tellus lectus, dictum ut vulputate et, tincidunt nec nunc.</p>
+                    </div><!--/3-->
+                </div>						
+            </nav>
+        </div> <!-- end #inner-footer -->
+    </div> <!-- end .container -->
+</footer>
+
+<div class="footer-copyright">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-10">			
+              <p class="source-org copyright">&copy; 2013 ShipB. All Rights Reserved until awarded prize money.</p>
+          </div>
+          <div class="col-md-2">
+              <a href="#">Back to Top <i class="fa fa-arrow-up"></i></a>	
+          </div>			
+      </div>
+  </div>
 </div>

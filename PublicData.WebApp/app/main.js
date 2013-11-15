@@ -16,7 +16,7 @@ require.config({
         durandal: '../bower_components/durandal/js',
         plugins: '../bower_components/durandal/js/plugins',
         transitions: '../bower_components/durandal/js/transitions',
-        knockout: '../bower_components/knockout/knockout',
+        knockout: '../bower_components/knockout.js/knockout',
     },
     shim: {
         bootstrapAffix: {
