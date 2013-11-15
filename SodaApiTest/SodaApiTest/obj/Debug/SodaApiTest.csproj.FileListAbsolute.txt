@@ -1,0 +1,5 @@
+c:\users\kek12_000\documents\visual studio 2012\Projects\SodaApiTest\SodaApiTest\bin\SodaApiTest.dll
+c:\users\kek12_000\documents\visual studio 2012\Projects\SodaApiTest\SodaApiTest\bin\SodaApiTest.pdb
+c:\users\kek12_000\documents\visual studio 2012\Projects\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.csprojResolveAssemblyReference.cache
+c:\users\kek12_000\documents\visual studio 2012\Projects\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.dll
+c:\users\kek12_000\documents\visual studio 2012\Projects\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.pdb
