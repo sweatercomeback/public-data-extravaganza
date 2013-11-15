@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="header">
+        <ul class="">
+        <ul class="nav nav-pills pull-right" data-bind="foreach: router.navigationModel">
+        <li data-bind="css: { active: isActive }">
+            <a data-bind="attr: { href: hash }, html: title"></a>
+        </li>
+    </ul>
+           
+        <h3 class="text-muted">yowebapp</h3>
+    </div>
+
+    <div data-bind="router: { transition:'entrance' }" class="container-fluid"></div>
+
+    <div class="footer">
+        <p>♥ from the Yeoman team</p>
+    </div>
+
+</div>
