@@ -7,9 +7,11 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using PD.API.Model;
+using PD.API.Model.DB;
 using PD.API.Model.ExtensionMethods;
 using PD.API.Services.Filters;
 using PD.API.Services.Helpers;
+using ServiceStack.OrmLite;
 using ServiceStack.ServiceHost;
 using ServiceStack.ServiceInterface;
 
@@ -17,11 +19,11 @@ namespace PD.API.Services
 {
     [RecordRequestFilter(ServiceName)]
     [RecordResponseFilter(ServiceName)]
-    public class ConfigService : Service
+    public class Resetervice : Service
     {
-        public const string ServiceName = "Config Service";
-        public const string AppName = "IL PublicData API";
+        public const string ServiceName = "Reset Service";
 
+        public IDbConnectionFactory DbConnectionFactory { get; set; }
 
         /// <summary>
         /// Gets the website configuration settings relevant to services. The built-in IoC used with ServiceStack autowires this property.
@@ -35,33 +37,30 @@ namespace PD.API.Services
 
         #region Public API Methods
 
-        public PingResponse Any(PingRequest request)
+        public ResetReturn Any(ResetRequest request)
         {
-            if (request.MSTimeBeforeResponse != 0)
+            var returnLog = new ResetReturn();
+
+            returnLog.OperationLog = new List<string>();
+
+            returnLog.OperationLog.Add("Config reset started on " + DateTime.Now.ToShortTimeString() + ".");
+
+            if (request.ResetKey.IsEqualWithCase("PrettyPleaseResetTheSystemAndDestroyAllData123"))
             {
-                Thread.Sleep(request.MSTimeBeforeResponse);
+                using (var db = DbConnectionFactory.OpenDbConnection())
+                {
+                    db.CreateTable<Address>(true);
+
+                    db.CreateTable<User>(true);
+                }
             }
-#if DEBUG
-            if (request.ThrowException)
+            else
             {
-                throw new Exception("Forced exception.");
+                returnLog.OperationLog.Add("Invalid Key.");
             }
-#endif
-            var versionResponse = new PingResponse { FullVersion = GetApplicationVersion() };
-            return (versionResponse);
+            return returnLog;
         }
-        
-        public ConfigOptionsResult Any(ConfigOptionsRequest request)
-        {
-            return (new ConfigOptionsResult()
-            {
-                ClientIPAddress = IpToProperIp(base.Request.RemoteIp),
-                OAuthURL = Config.OAuthURL,
-                AppID = Config.AppID,
-                FullVersion = GetApplicationVersion()
-            });
-        }
-        
+
         #endregion
 
         #region Private Helper Methods

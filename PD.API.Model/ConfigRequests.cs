@@ -19,7 +19,7 @@ namespace PD.API.Model
         public string FullVersion { get; set; }
     }
 
-    [Api("Get version information from the server.")]
+    [Api("GET version information from the server.")]
     [Route("/Ping", "GET")]
     [Route("/Ping/{MSTimeBeforeResponse}", "GET")]
     public class PingRequest
@@ -34,4 +34,5 @@ namespace PD.API.Model
     {
         public string FullVersion { get; set; }
     }
+    
 }

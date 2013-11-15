@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -7,6 +8,7 @@ using Funq;
 using PD.API.Services;
 using PD.API.Services.Helpers;
 using ServiceStack.Configuration;
+using ServiceStack.OrmLite;
 using ServiceStack.WebHost.Endpoints;
 
 namespace PD.API.Web
@@ -36,6 +38,9 @@ namespace PD.API.Web
 
             var logger = new LogHelper(ConfigService.AppName);
             container.Register(logger);
+
+            var dbConnectionFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["MainServer"].ConnectionString, SqlServerDialect.Provider);
+            container.Register<IDbConnectionFactory>(dbConnectionFactory);
         }
     }
 }

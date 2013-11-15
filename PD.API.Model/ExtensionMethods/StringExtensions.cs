@@ -12,5 +12,15 @@ namespace PD.API.Model.ExtensionMethods
         {
             return (String.IsNullOrEmpty(str));
         }
+
+        public static bool IsEqualNoCase(this string str, string compareTo)
+        {
+            return (String.Compare(str, compareTo, System.StringComparison.OrdinalIgnoreCase) == 0);
+        }
+
+        public static bool IsEqualWithCase(this string str, string compareTo)
+        {
+            return (String.CompareOrdinal(str, compareTo) == 0);
+        }
     }
 }
