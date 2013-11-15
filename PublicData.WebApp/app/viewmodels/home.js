@@ -8,8 +8,7 @@ define(['plugins/router', 'durandal/app', 'knockout'], function (router, app, ko
 	            zoom: 10,
 	            mapTypeId: google.maps.MapTypeId.ROADMAP
 	        };
-	        var id = $(element).attr("id");
-	        var map = new google.maps.Map(document.getElementById(id),
+	        var map = new google.maps.Map(element,
             mapOptions);
 
             google.maps.event.addDomListener(window, 'load', initialize);
