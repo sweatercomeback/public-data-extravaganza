@@ -1,4 +1,4 @@
-// Generated on 2013-11-12 using generator-webapp 0.4.2
+// Generated on 2013-09-13 using generator-webapp 0.4.2
 'use strict';
 
 // # Globbing
@@ -12,7 +12,6 @@ module.exports = function (grunt) {
     require('time-grunt')(grunt);
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
-
 
     // configurable paths
     var yeomanConfig = {
@@ -31,9 +30,9 @@ module.exports = function (grunt) {
                 files: ['test/spec/{,*/}*.coffee'],
                 tasks: ['coffee:test']
             },
-            recess: {
+            compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['recess:server', 'autoprefixer']
+                tasks: ['compass:server', 'autoprefixer']
             },
             styles: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -158,20 +157,6 @@ module.exports = function (grunt) {
                 options: {
                     debugInfo: true
                 }
-            }
-        },
-        recess: {
-            options: {
-                compile: true
-            },
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/styles',
-                    src: '{,*/}*.less',
-                    dest: '.tmp/styles/',
-                    ext: '.css'
-                }]
             }
         },
         autoprefixer: {
@@ -330,7 +315,7 @@ module.exports = function (grunt) {
         },
         concurrent: {
             server: [
-                'recess',
+                'compass',
                 'coffee:dist',
                 'copy:styles'
             ],
