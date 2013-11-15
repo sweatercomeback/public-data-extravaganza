@@ -1,0 +1,10 @@
+c:\users\kek12_000\documents\visual studio 2012\Projects\SodaApiTest\SodaApiTest\bin\SodaApiTest.dll
+c:\users\kek12_000\documents\visual studio 2012\Projects\SodaApiTest\SodaApiTest\bin\SodaApiTest.pdb
+c:\users\kek12_000\documents\visual studio 2012\Projects\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.csprojResolveAssemblyReference.cache
+c:\users\kek12_000\documents\visual studio 2012\Projects\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.dll
+c:\users\kek12_000\documents\visual studio 2012\Projects\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.pdb
+C:\Github Projects\RockfordMeetupThingy\public-data-extravaganza\SodaApiTest\SodaApiTest\bin\SodaApiTest.dll
+C:\Github Projects\RockfordMeetupThingy\public-data-extravaganza\SodaApiTest\SodaApiTest\bin\SodaApiTest.pdb
+C:\Github Projects\RockfordMeetupThingy\public-data-extravaganza\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.csprojResolveAssemblyReference.cache
+C:\Github Projects\RockfordMeetupThingy\public-data-extravaganza\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.dll
+C:\Github Projects\RockfordMeetupThingy\public-data-extravaganza\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.pdb
