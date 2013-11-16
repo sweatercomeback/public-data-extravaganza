@@ -1,0 +1,56 @@
+
+<div style="padding: 0 20px;">
+
+    <h3>{{ service.name }}</h3>
+
+    Order by:
+    <select ng-model="sortorder" class="input-small">
+        <option selected value="name">Name</option>
+        <option selected value="category">Category</option>
+        <option value="-upVoteCount">Votes</option>
+    </select>
+
+    Show:
+    <select ng-model="query.category" class="input-small">
+        <option selected value="">All</option>
+        <option value="clean ditch">Clean Ditch</option>
+        <option value="patch pothole">Patch Pothole</option>
+        <option value="prune tree">Prune Tree</option>
+        <option value="visibility issues">Visibility Issues</option>
+        <option value="street light">Street Light</option>
+        <option value="sweep road">Sweep Road</option>
+        <option value="graffiti">Graffiti</option>
+    </select>
+    <br /><br />
+
+    <div ng-repeat="session in service.requests | orderBy:sortorder | filter:query">
+        <div class="row well session">
+            <div class="col-sm-1 panel votingWidget">
+                <div class="votingButton" ng-click="upVoteSession(session)">
+                    <i class="glyphicon glyphicon-chevron-up"></i>
+                </div>
+                <div class="badge badge-inverse">
+                    <div>
+                        {{session.upVoteCount}}
+                    </div>
+                </div>
+                <div class="votingButton" ng-click="downVoteSession(session)">
+                    <i class="glyphicon glyphicon-chevron-down"></i>
+                </div>
+            </div>
+            <div class="panel col-sm-10 col-sm-offset-1">
+                <div class="panel-body clearfix">
+                    <div class="service-image" init-fancybox="" ng-repeat="image in session.images">
+                        <a href="{{image.url}}" class="fancybox"><img src="{{image.url}}"></a>
+                    </div>
+
+                    <h4 class="well-title">{{session.name}}</h4>
+                    <h6 style="margin-top: -8px;">{{session.category}}</h6>
+                    <p>{{session.description}}</p>
+                    <span>Location: {{session.location.address}}, {{session.location.city}} {{session.location.state}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
