@@ -19,9 +19,9 @@ namespace PD.API.Services
 {
     [RecordRequestFilter(ServiceName)]
     [RecordResponseFilter(ServiceName)]
-    public class PopulateDataService : Service
+    public class PopulateDataRoadConstructionService : Service
     {
-        public const string ServiceName = "Populate Data Service";
+        public const string ServiceName = "Populate Data Road Construction Service";
 
         public IDbConnectionFactory DbConnectionFactory { get; set; }
 
@@ -37,7 +37,7 @@ namespace PD.API.Services
 
         #region Public API Methods
 
-        public PopulateDataReturn Any(PopulateDataRequest request)
+        public PopulateDataReturn Get(PopulateDataRoadConstructionRequest request)
         {
             var returnLog = new PopulateDataReturn();
 
@@ -45,27 +45,46 @@ namespace PD.API.Services
 
             returnLog.OperationLog.Add("Populate Data started on " + DateTime.Now.ToShortTimeString() + ".");
 
+            var hostId = Config.SodaHost;
+            var dataSetId = Config.SodaDataSet;
+
             if (request.PopulateKey.IsEqualWithCase("PrettyPleasePopulateTheSystem"))
             {
                 using (var db = DbConnectionFactory.OpenDbConnection())
                 {
                     returnLog.OperationLog.Add("Populating TypeOfWork Table.");
 
-                    db.Insert(new TypeOfWorkDB() { Description = "Road Construction"});
-                    db.Insert(new TypeOfWorkDB() { Description = "Pot Hole" });
+                    db.Insert(new TypeOfWork() { Description = "Road Construction"});
+                    db.Insert(new TypeOfWork() { Description = "Pot Hole" });
+
+
                 }
             }
             else
             {
                 returnLog.OperationLog.Add("Invalid Key.");
             }
+
+
+
             return returnLog;
         }
-
+        
         #endregion
 
         #region Private Helper Methods
         
+        public static string GetApplicationVersion()
+        {
+            var ver = Assembly.GetExecutingAssembly().GetName().Version;
+            return (ver.ToString());
+        }
+
+        public static string IpToProperIp(string ip)
+        {
+            return ((String.CompareOrdinal(ip, "::1") == 0) ? "127.0.0.1" : ip);
+        }
+
         #endregion
     }
 }
