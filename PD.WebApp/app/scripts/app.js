@@ -1,6 +1,19 @@
 'use strict';
 
-angular.module('PD.WebAppApp', [])
+var speakUpApp = angular.module('speakUpApp', ['ngSanitize'])
+    .config(function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+          templateUrl: 'views/main.html',
+          controller: 'MainCtrl'
+      })
+      .otherwise({
+          redirectTo: '/'
+      });
+});;
+
+
+/*angular.module('PD.WebAppApp', ['ngSanitize'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -14,4 +27,4 @@ angular.module('PD.WebAppApp', [])
       .otherwise({
         redirectTo: '/'
       });
-  });
+  });*/
