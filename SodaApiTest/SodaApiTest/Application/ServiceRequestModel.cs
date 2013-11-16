@@ -15,8 +15,8 @@ namespace SodaApiTest.Application
         public string Location { get; set; }
         public string AddressType { get; set; }
         public string Address { get; set; }
-        public float GPSX { get; set; }
-        public float GPSY { get; set; }
+        public string GPSX { get; set; }
+        public string GPSY { get; set; }
 
     }
 }

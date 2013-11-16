@@ -24,16 +24,22 @@ namespace SodaApiTest
 
             foreach (var data in dataList)
             {
-                var address = string.Empty;
                 var model = new ServiceRequestModel();
 
                 foreach (var column in columns)
                 {
 
-                    model.Address += (column.fieldName.ToUpper().Contains("Address"))
-                                         ? (data[column.fieldName] + " ")
-                                         : string.Empty;
+                    model.Address += (column.fieldName.ToUpper().Contains("ADDRESS1")) ? (data[column.fieldName].ToString()+ " ") : string.Empty;
+                   // model.Address += (column.fieldName.ToUpper().Contains("ADDRESS2")) ? (data[column.fieldName].ToString()+ "22 ") : string.Empty;
 
+                    if (column.fieldName.ToUpper().Contains("ADDRESS2"))
+                    {
+                        if (data.Keys.Contains(column.fieldName))
+                        {
+                            model.Address += (data[column.fieldName].ToString() + "22 ");
+                        }
+                        //Response.Write("Key Name:" + column.fieldName + " \t LENGTH:" + column.fieldName.Length + ":" + data[column.fieldName] + "<br/>");
+                    }
                     if (column.fieldName.ToUpper().Contains("SERVNO"))
                     {
                         model.ServNo = data[column.fieldName].ToString();
@@ -43,7 +49,6 @@ namespace SodaApiTest
                     {
                         var requestDateTime = DateTime.MinValue;
                         model.RequestDate = Convert.ToDateTime(data[column.fieldName]);
-                        //model.RequestDate = (DateTime.TryParse([column.fieldName].ToString(), DateTime.Fout requestDateTime))?requestDateTime:DateTime.Now;
                     }
 
                     if (column.fieldName.ToUpper().Contains("PROBCODE"))
@@ -56,21 +61,18 @@ namespace SodaApiTest
                         model.ProbDesc = data[column.fieldName].ToString();
                     }
 
-                    if (column.fieldName.Contains("Assigned"))
-                    {
-                        model.Assigned = data[column.fieldName].ToString();
-                    }
-
                     if (column.fieldName.ToUpper().Contains("GPSX"))
                     {
-                        float longitude = 0;
-                        model.GPSX = (float.TryParse(data[column.fieldName].ToString(), out longitude)) ? longitude : 0;
+                        //float longitude = 0;
+                        //model.GPSX = (float.TryParse(data[column.fieldName].ToString(), out longitude)) ? longitude : 0;
+                        model.GPSX = (data[column.fieldName].ToString());
                     }
 
                     if (column.fieldName.ToUpper().Contains("GPSY"))
                     {
-                        float longitude = 0;
-                        model.GPSY = (float.TryParse(data[column.fieldName].ToString(), out longitude)) ? longitude : 0;
+                        //float longitude = 0;
+                        //model.GPSY = (float.TryParse(data[column.fieldName].ToString())) ? longitude : 0;
+                        model.GPSY = (data[column.fieldName].ToString());
                     }
                 }
                 Response.Write("ServiceNumber:" + model.ServNo + "<BR/>");
@@ -78,9 +80,7 @@ namespace SodaApiTest
                 Response.Write("ProblemCode:" + model.ProbCode + "<BR/>");
                 Response.Write("ProblemDescription:" + model.ProbDesc + "<BR/>");
                 Response.Write("Address:" + model.Address + "<BR/>");
-                ;
-                Response.Write("ASsigned:" + model.Assigned + "<BR/>");
-                Response.Write("GPSX:" + model.GPSX.ToString() + "<BR/>");
+                Response.Write("GPSX:" + model.GPSX + "<BR/>");
                 Response.Write("GPSY:" + model.GPSY + "<BR/>");
                 models.Add(model);
 
