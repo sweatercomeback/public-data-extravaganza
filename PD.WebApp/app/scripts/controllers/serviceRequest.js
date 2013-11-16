@@ -4,7 +4,7 @@ speakUpApp.controller('EventController',
 
     function EventController($scope, dataRepository) {
 
-        $scope.sortorder = "name";
+        $scope.sortorder = "-upVoteCount";
         $scope.snippet = "<h4 style=\"color: red;\">hi there</h4>";
 
         $scope.service = dataRepository.fetchServiceRequests();

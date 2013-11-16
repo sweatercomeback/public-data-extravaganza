@@ -5,9 +5,10 @@
 
     Order by:
     <select ng-model="sortorder" class="input-small">
-        <option selected value="name">Name</option>
-        <option selected value="category">Category</option>
-        <option value="-upVoteCount">Votes</option>
+        <option selected value="-upVoteCount">Votes</option>
+        <option value="name">Name</option>
+        <option value="category">Category</option>
+        
     </select>
 
     Show:
@@ -43,13 +44,13 @@
             <div class="panel col-sm-11">
                 <div class="panel-body clearfix">
                     <div class="service-image" init-fancybox="" ng-repeat="image in session.images">
-                        <a href="{{image.url}}" class="fancybox"><img src="{{image.url}}"></a>
+                        <a href="{{image.url}}" class="fancybox"><img ng-src="{{image.url}}"></a>
                     </div>
 
                     <h4 class="well-title">{{session.name}}</h4>
                     <h6 style="margin-top: -8px;">{{session.category}}</h6>
                     <p>{{session.description}}</p>
-                    <span>Location: {{session.location.address}}, {{session.location.city}} {{session.location.state}}</span>
+                    <span><a href="http://maps.google.com/?ie=UTF8&hq=&ll={{session.location.position.lat}},{{session.location.position.long}}&z={{session.location.position.zoom}}" target="_blank">View on map</a></span>
                 </div>
             </div>
         </div>
