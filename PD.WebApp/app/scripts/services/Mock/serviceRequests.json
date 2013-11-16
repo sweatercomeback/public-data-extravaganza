@@ -13,11 +13,11 @@
                         "province": "IL",
                         "position": {
                             "lat": 42.299786,
-                            "long": -89.070303,
+                            "long": -89.070303
                         },
                         "pov": {
                             "heading": 172.35616438356166,
-                            "pitch": -45,
+                            "pitch": -45
                         },
                         "panoID": "LRGombGStGdjMElWvZfeiw"
                     },
@@ -33,11 +33,11 @@
                         "province": "IL",
                         "position": {
                             "lat": 42.292977,
-                            "long": -89.07255399999997,
+                            "long": -89.07255399999997
                         },
                         "pov": {
                             "heading": 337.56164383561645,
-                            "pitch": -45,
+                            "pitch": -45
                         },
                         "panoID": "QmE5T51XhbY_x-bfBYoEQA"
                     },
@@ -53,11 +53,11 @@
                         "province": "IL",
                         "position": {
                             "lat": 42.298572,
-                            "long": -89.07119999999998,
+                            "long": -89.07119999999998
                         },
                         "pov": {
                             "heading": -111.94520547945204,
-                            "pitch": -35.13698630136986,
+                            "pitch": -35.13698630136986
                         },
                         "panoID": "M8ua-t-r5AvypIMxuQKraw"
                     },
