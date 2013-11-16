@@ -11,6 +11,10 @@ var speakUpApp = angular.module('speakUpApp', ['ngSanitize'])
           templateUrl: 'views/submit.html',
           controller: 'SubmitController'
       })
+      .when('/contact-us', {
+          templateUrl: 'views/contact.html',
+          controller: 'ContactController'
+      })
       .otherwise({
           redirectTo: '/'
       });

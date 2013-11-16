@@ -8,6 +8,9 @@ $icon-font-path:       "../bower_components/bootstrap-sass/fonts/" !default;
 
 /* app css stylesheet */
 
+.well { background-color: #d7dfed; }
+.panel { border: 1px solid #aaa; background-color: #eee; }
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -39,8 +42,6 @@ $icon-font-path:       "../bower_components/bootstrap-sass/fonts/" !default;
 }
 
 body { background: #444; color: #fff; }
-
-.panel { border: 1px solid #666; }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
@@ -75,14 +76,15 @@ body {
 
 
 
-/* Voting Button */
-.votingButton { 
- margin-left: 3px;
- font-size: 14px; line-height: 14px;
+/* Voting Widget */
+
+.votingWidget { margin: 30px 2% 0 0; text-align: center; }
+.votingWidget .badge { margin-bottom: 4px; font-size: 16px; line-height: 18px; display: inline-block; } 
+
+.votingWidget .votingButton { 
+ font-size: 14px; line-height: 18px;
  cursor: pointer;
 }
-
-.votingWidget .badge { margin-bottom: 4px; } 
 
 
 /* Service Request */

@@ -25,20 +25,22 @@
 
     <div ng-repeat="session in service.requests | orderBy:sortorder | filter:query">
         <div class="row well session">
-            <div class="col-sm-1 panel votingWidget">
-                <div class="votingButton" ng-click="upVoteSession(session)">
-                    <i class="glyphicon glyphicon-chevron-up"></i>
-                </div>
-                <div class="badge badge-inverse">
-                    <div>
-                        {{session.upVoteCount}}
+            <div class="col-sm-1">
+                <div class="votingWidget">
+                    <div class="votingButton" ng-click="upVoteSession(session)">
+                        <i class="glyphicon glyphicon-chevron-up"></i>
+                    </div>
+                    <div class="badge badge-inverse">
+                        <div>
+                            {{session.upVoteCount}}
+                        </div>
+                    </div>
+                    <div class="votingButton" ng-click="downVoteSession(session)">
+                        <i class="glyphicon glyphicon-chevron-down"></i>
                     </div>
                 </div>
-                <div class="votingButton" ng-click="downVoteSession(session)">
-                    <i class="glyphicon glyphicon-chevron-down"></i>
-                </div>
             </div>
-            <div class="panel col-sm-10 col-sm-offset-1">
+            <div class="panel col-sm-11">
                 <div class="panel-body clearfix">
                     <div class="service-image" init-fancybox="" ng-repeat="image in session.images">
                         <a href="{{image.url}}" class="fancybox"><img src="{{image.url}}"></a>
