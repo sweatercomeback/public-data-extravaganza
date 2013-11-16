@@ -66,16 +66,17 @@ namespace PD.API.Services
                        locationOfInterestDB.PositionLatitutde = data.Latitude;
                        locationOfInterestDB.PositionLongitude = data.Longitude;
                        locationOfInterestDB.LocationDescription = data.Location;
-                       locationOfInterestDB.TypeOfWork = types[0].ID;
+                       locationOfInterestDB.TypeOfWorkID = types[0].TypeOfWorkID;
                        locationOfInterestDB.StateCreated = false;
                        locationOfInterestDB.DescriptionOfWork = data.Description;
                        locationOfInterestDB.CreatedOn = DateTime.Now;
-                       locationOfInterestDB.StartDate = DateTime.Now;
-                       locationOfInterestDB.StopDate = DateTime.Now;
-                    
+                       locationOfInterestDB.StartDate =null;
+                       locationOfInterestDB.StopDate = null;
+                       locationOfInterestDB.UpVote=0;
                        db.Insert(locationOfInterestDB);
                        //collection.Add(locationOfInterestDB);
                    }
+
 
                 }
             }

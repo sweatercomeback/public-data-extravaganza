@@ -13,24 +13,24 @@ namespace PD.API.Model.WS
     [Route("/LocationOfInterest", "GET")]
     public class LocationOfInterestRequest : IReturn<LocationOfInterest>
     {
-        public int ID { get; set; }
+        public int LocationOfInterestID { get; set; }
     }
       
     [Api("PUT, or POST a location of interest.")]
     [Route("/Config", "GET")]
     public class LocationOfInterest : IReturn<LocationOfInterest>
     {
-        public int ID { get; set; }
+        public int LocationOfInterestID { get; set; }
         public string LocationDescription { get; set; }
         public string DescriptionOfWork { get; set; }
         public Position Position { get; set; }
         public PointOfView POV { get; set; }
         public string PanoID { get; set; }
         public List<int> UploadedImageIDs { get; set; }
-        public int TypeOfWork { get; set; }
+        public int TypeOfWorkID { get; set; }
         public bool StateCreated { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime StopDate { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? StopDate { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 
