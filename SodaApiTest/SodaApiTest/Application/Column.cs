@@ -17,5 +17,6 @@ namespace SodaApiTest.Application
 
         public string fieldValue { get; set; }
 
+
     }
 }

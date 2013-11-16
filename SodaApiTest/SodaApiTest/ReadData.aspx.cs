@@ -19,9 +19,11 @@ namespace SodaApiTest
             var dataset = noAuthClient.getDatasetInfo<Row>(host, datasetId);
 
             Column[] columns = dataset.columns;
-            foreach (var column in columns)
+            var data = dataset.query("select * where county_nam = 'WINNEBAGO'");
+            foreach (var column in data)
             {
-                Response.Write("Column name:" + column.name + ":" + column.fieldValue + "\t Type:" + column.dataTypeName + "<br/>");
+                Response.Write("County:" + column["county_nam"] + " : " + "Location:" + column["location1"] + " " + column["location2"] + " " + column["location3"] + " " + column["location4"] + " " + column["location5"] + " " + column["location6"] + "<br/>");
+                //Response.Write("Column name:" + column.name + ":" + column.fieldValue + "\t Type:" + column.dataTypeName + "<br/>");
             }
             //var responseA = dataset.query("select * where title = 'The Killer'");
         }
