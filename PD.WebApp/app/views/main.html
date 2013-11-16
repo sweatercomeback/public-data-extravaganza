@@ -1,31 +1,7 @@
 
 <div style="padding: 0 20px;">
-    <img ng-src="{{event.imageUrl}}" alt="{{event.name}}">
-    <div class="row">
-        <div class="col-sm-11">
-            <h2>{{ event.name }}</h2>
-        </div>
-    </div>
 
-    <div ng-bind-html-unsafe="snippet">some title</div>
-
-    <div class="row">
-        <div class="col-sm-3">
-            <div><strong>Date:</strong> {{ event.date }}</div>
-            <div><strong>Time:</strong> {{ event.time }}</div>
-        </div>
-        <div class="col-sm-4">
-            <address>
-                <strong>Address:</strong><br />
-                {{event.location.address}}<br />
-                {{event.location.city}}, {{event.location.province}}
-            </address>
-        </div>
-    </div>
-
-    <hr/>
-
-    <h3>Sessions</h3>
+    <h3>Service Requests</h3>
 
     Order by:
     <select ng-model="sortorder" class="input-small">
@@ -43,7 +19,7 @@
     <br /><br />
 
     <div ng-repeat="session in event.sessions | orderBy:sortorder | filter:query">
-        <div class="row session">
+        <div class="row well session">
             <div class="col-sm-1 panel votingWidget">
                 <div class="votingButton" ng-click="upVoteSession(session)">
                     <i class="glyphicon glyphicon-chevron-up"></i>
