@@ -1,23 +1,15 @@
 'use strict';
 
-speakUpApp.controller('SubmitController', function ($scope) {
+speakUpApp.controller('SubmitController', function ($scope, dataRepository) {
   	 $scope.address = '';
   	 $scope.serviceCategory = '';
   	 $scope.description = '';
 
-  	 $scope.serviceCategories = [
-  	 	'Clean Ditch'
-  	 	,'Patch Pothole'
-  	 	,'Prune Tree'
-  	 	,'Visibility Issues'
-  	 	,'Street Light'
-  	 	,'Sweep Road'
-  	 	,'Graffiti'
-  	 ];
+  	 $scope.serviceCategories = dataRepository.fetchServiceCategories();
 
 
-	$scope.submit = function() {
-		console.log($scope.serviceCategory);
-	}
+  	$scope.submit = function() {
+  		console.log($scope.serviceCategory);
+  	}
 
   });

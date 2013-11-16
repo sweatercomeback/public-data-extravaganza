@@ -1,16 +1,13 @@
 (function() {
 	'use strict';
 
-	var module = angular.module('speakUpApp', []);
-
-
 
 	var useMocks = true;
 
-	module.factory('dataRepository', ['$http', 'configModel', function($http, configModel) {
+	speakUpApp.factory('dataRepository', ['$http', function($http) {
 		return !useMocks ?
-			new speakUpApp.dataRepository($http) :
-			new speakUpApp.dataRepositoryMock($http);
+			new DataRepository($http) :
+			new DataRepositoryMock($http);
 	}]);
 
 	
