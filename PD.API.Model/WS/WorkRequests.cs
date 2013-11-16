@@ -17,7 +17,7 @@ namespace PD.API.Model.WS
     }
       
     [Api("PUT, or POST a location of interest.")]
-    [Route("/Config", "GET")]
+    [Route("/LocationOfInterest", "PUT, POST")]
     public class LocationOfInterest : IReturn<LocationOfInterest>
     {
         public int LocationOfInterestID { get; set; }
