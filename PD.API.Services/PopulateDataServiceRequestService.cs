@@ -45,8 +45,10 @@ namespace PD.API.Services
 
             returnLog.OperationLog.Add("Populate Data started on " + DateTime.Now.ToShortTimeString() + ".");
 
-            var hostId = Config.SodaHost;
-            var dataSetId = Config.SodaDataSet;
+            var host = Config.SodaHost;
+            var dataSetId = Config.ServiceRequestDataSet;
+
+            var dataSet = PD.API.SODA.ReadDataFromSoda.ServiceRequestData(host, dataSetId);
 
             if (request.PopulateKey.IsEqualWithCase("PrettyPleasePopulateTheSystem"))
             {
@@ -54,8 +56,24 @@ namespace PD.API.Services
                 {
                     returnLog.OperationLog.Add("Populating TypeOfWork Table.");
 
-                    //db.Insert(new TypeOfWorkDB() { Description = "Road Construction"});
-                    //db.Insert(new TypeOfWorkDB() { Description = "Pot Hole" });
+                    db.Insert(new TypeOfWorkDB() { Description = "Service Request" });
+                    var types = db.Select<TypeOfWorkDB>(m => m.Description == "Service Request");
+                    foreach (var data in dataSet)
+                    {
+                        var locationOfInterestDB = new LocationOfInterestDB();
+                        locationOfInterestDB.PositionLatitutde = 0;
+                        locationOfInterestDB.PositionLongitude = 0;
+                        locationOfInterestDB.LocationDescription = data.Address;
+                        locationOfInterestDB.TypeOfWorkID = types[0].TypeOfWorkID;
+                        locationOfInterestDB.StateCreated = false;
+                        locationOfInterestDB.DescriptionOfWork = data.ProbDesc;
+                        locationOfInterestDB.CreatedOn = data.RequestDate;
+                        locationOfInterestDB.StartDate = null;
+                        locationOfInterestDB.StopDate = null;
+                        locationOfInterestDB.UpVote = 0;
+                        db.Insert(locationOfInterestDB);
+                        //collection.Add(locationOfInterestDB);
+                    }
                 }
             }
             else
