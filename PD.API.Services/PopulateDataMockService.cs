@@ -19,9 +19,9 @@ namespace PD.API.Services
 {
     [RecordRequestFilter(ServiceName)]
     [RecordResponseFilter(ServiceName)]
-    public class PopulateDataRoadConstructionService : Service
+    public class PopulateDataMockService : Service
     {
-        public const string ServiceName = "Populate Data Road Construction Service";
+        public const string ServiceName = "Populate Data Mock Service";
 
         public IDbConnectionFactory DbConnectionFactory { get; set; }
 
@@ -56,8 +56,6 @@ namespace PD.API.Services
 
                     db.Insert(new TypeOfWorkDB() { Description = "Road Construction"});
                     db.Insert(new TypeOfWorkDB() { Description = "Pot Hole" });
-
-
                 }
             }
             else
