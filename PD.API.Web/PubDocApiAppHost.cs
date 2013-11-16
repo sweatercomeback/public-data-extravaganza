@@ -35,6 +35,8 @@ namespace PD.API.Web
                     },
             });
 
+            ServiceStack.Text.JsConfig.EmitCamelCaseNames = true;
+
             var config = new SiteConfig(new ConfigurationResourceManager());
             container.Register(config);
 
