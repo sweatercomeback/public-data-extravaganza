@@ -19,9 +19,9 @@ namespace PD.API.Services
 {
     [RecordRequestFilter(ServiceName)]
     [RecordResponseFilter(ServiceName)]
-    public class PopulateDataService : Service
+    public class PopulateDataRoadConstructionService : Service
     {
-        public const string ServiceName = "Populate Data Service";
+        public const string ServiceName = "Populate Data Road Construction Service";
 
         public IDbConnectionFactory DbConnectionFactory { get; set; }
 
@@ -37,13 +37,16 @@ namespace PD.API.Services
 
         #region Public API Methods
 
-        public PopulateDataReturn Any(PopulateDataRequest request)
+        public PopulateDataReturn Get(PopulateDataRoadConstructionRequest request)
         {
             var returnLog = new PopulateDataReturn();
 
             returnLog.OperationLog = new List<string>();
 
             returnLog.OperationLog.Add("Populate Data started on " + DateTime.Now.ToShortTimeString() + ".");
+
+            var hostId = Config.SodaHost;
+            var dataSetId = Config.SodaDataSet;
 
             if (request.PopulateKey.IsEqualWithCase("PrettyPleasePopulateTheSystem"))
             {
@@ -53,15 +56,20 @@ namespace PD.API.Services
 
                     db.Insert(new TypeOfWork() { Description = "Road Construction"});
                     db.Insert(new TypeOfWork() { Description = "Pot Hole" });
+
+
                 }
             }
             else
             {
                 returnLog.OperationLog.Add("Invalid Key.");
             }
+
+
+
             return returnLog;
         }
-
+        
         #endregion
 
         #region Private Helper Methods

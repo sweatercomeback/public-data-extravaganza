@@ -71,7 +71,8 @@
       <Link>SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="ConfigService.cs" />
-    <Compile Include="PopulateDataService.cs" />
+    <Compile Include="PopulateDataRoadConstructionService.cs" />
+    <Compile Include="PopulateDataServiceRequestService.cs" />
     <Compile Include="ResetService.cs" />
     <Compile Include="Filters\RecordFilters.cs" />
     <Compile Include="Helpers\LogHelper.cs" />
