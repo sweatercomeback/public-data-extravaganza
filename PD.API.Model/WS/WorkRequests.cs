@@ -12,13 +12,15 @@ namespace PD.API.Model.WS
     public class LocationOfInterestListRequest : IReturn<List<LocationOfInterest>> { }
 
 
+    [Api("GET a Location of Interest.")]
+    [Route("/LocationOfInterest", "GET")]
     public class LocationOfInterestRequest : IReturn<LocationOfInterest>
     {
         public int LocationOfInterestID { get; set; }
     }
         
         
-    [Api("GET, PUT, or POST a location of interest.")]
+    [Api("PUT, or POST a location of interest.")]
     [Route("/Config", "GET")]
     public class LocationOfInterest
     {
