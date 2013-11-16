@@ -129,11 +129,12 @@ namespace  PD.API.SODA
         public float Longitude { get; set; }
         public float Latitude { get; set; }
 
+        public string Description { get; set; }
+
         /*
          * Column name:LENGTH:	 Type:number
 Column name:TYPE:	 Type:text
-Column name:INVENTORY:	 Type:text
-Column name:BEGIN_STA:	 Type:number
+Column name:INVENTORY:	 Type:texte
 Column name:END_STA:	 Type:number
 Column name:STRUCTURE_:	 Type:text
 Column name:RTYPE1:	 Type:text

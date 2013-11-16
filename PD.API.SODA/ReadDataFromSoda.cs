@@ -77,6 +77,9 @@ namespace PD.API.SODA
                     {
                         model.CountyName = data[column.fieldName].ToString();
                     }
+                    model.Description = "<h2>Location</h2>" + model.Location + "<br/>";
+                    model.Description += "<h2>Improvement</h2>" + model.Improvement + "<br/>";
+                    model.Description += "<h2>Route</h2>" + model.Route + "<br/>";
                 }
                 //Response.Write("Record:" + model.Record + "<BR/>");
                 //Response.Write("Inventory:" + model.Inventory + "<BR/>");
