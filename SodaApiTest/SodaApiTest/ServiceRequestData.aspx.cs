@@ -63,16 +63,16 @@ namespace SodaApiTest
 
                     if (column.fieldName.ToUpper().Contains("GPSX"))
                     {
-                        //float longitude = 0;
-                        //model.GPSX = (float.TryParse(data[column.fieldName].ToString(), out longitude)) ? longitude : 0;
-                        model.GPSX = (data[column.fieldName].ToString());
+                        float latitude = 0;
+                        model.GPSX = (float.TryParse(data[column.fieldName].ToString(), out latitude)) ? latitude : 0;
+                        //model.GPSX = (data[column.fieldName].ToString());
                     }
 
                     if (column.fieldName.ToUpper().Contains("GPSY"))
                     {
-                        //float longitude = 0;
-                        //model.GPSY = (float.TryParse(data[column.fieldName].ToString())) ? longitude : 0;
-                        model.GPSY = (data[column.fieldName].ToString());
+                        float longitude = 0;
+                        model.GPSY = (float.TryParse(data[column.fieldName].ToString(), out longitude)) ? longitude : 0;
+                        //model.GPSY = (data[column.fieldName].ToString());
                     }
                 }
                 Response.Write("ServiceNumber:" + model.ServNo + "<BR/>");
