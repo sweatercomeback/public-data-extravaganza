@@ -19,6 +19,7 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
 }
 
 .menu:after {
+
   content: "]";
 }
 
@@ -36,10 +37,9 @@ $iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
   padding: 0;
 }
 
-
 body { background: #444; color: #fff; }
 
-.panel { background-color: #222; }
+.panel { border: 1px solid #666; }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
@@ -71,3 +71,13 @@ body {
     line-height: 1;
     letter-spacing: -1px;
 }
+
+
+
+/* Voting Button */
+.votingButton { 
+ margin-left: 3px;
+ font-size: 14px; line-height: 14px;
+}
+
+.votingWidget .badge { margin-bottom: 4px; } 
