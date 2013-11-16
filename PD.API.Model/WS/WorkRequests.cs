@@ -27,11 +27,16 @@ namespace PD.API.Model.WS
         public PointOfView POV { get; set; }
         public string PanoID { get; set; }
         public List<int> UploadedImageIDs { get; set; }
-        public int TypeOfWorkID { get; set; }
+        public string TypeOfWorkDescription { get; set; }
         public bool StateCreated { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? StopDate { get; set; }
         public DateTime CreatedOn { get; set; }
+    }
+
+    public class TypeOfWork
+    {
+        public string Description { get; set; }
     }
 
     public class Position

@@ -58,7 +58,6 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="ExtensionMethods\ModelExtensions.cs" />
     <Compile Include="WS\ConfigRequests.cs" />
     <Compile Include="ExtensionMethods\GuidExtensions.cs" />
     <Compile Include="ExtensionMethods\StringExtensions.cs" />

@@ -80,6 +80,7 @@
       <Link>SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="ConfigService.cs" />
+    <Compile Include="ExtensionMethods\ModelExtensions.cs" />
     <Compile Include="PopulateDataMockService.cs" />
     <Compile Include="PopulateDataRoadConstructionService.cs" />
     <Compile Include="PopulateDataServiceRequestService.cs" />

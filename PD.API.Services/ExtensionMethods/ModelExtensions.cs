@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using PD.API.Model.DB;
 using PD.API.Model.WS;
+using ServiceStack.OrmLite;
 
 namespace PD.API.Model.ExtensionMethods
 {
     public static class ModelExtensions
     {
-        public static LocationOfInterest DbToWs(this LocationOfInterestDB loiDB)
+        public static LocationOfInterest DbToWs(this LocationOfInterestDB loiDB, IDbConnection db)
         {
             var loi = new LocationOfInterest();
             loi.LocationOfInterestID = loiDB.LocationOfInterestID;
@@ -28,7 +30,8 @@ namespace PD.API.Model.ExtensionMethods
             }
             loi.PanoID = loiDB.PanoID;
             loi.UploadedImageIDs = loiDB.UploadedImageIDs;
-            loi.TypeOfWorkID = loiDB.TypeOfWorkID;
+            var tyepOfWorkDB = db.Select<TypeOfWorkDB>(m => m.TypeOfWorkID == loiDB.TypeOfWorkID);
+            loi.TypeOfWorkDescription = tyepOfWorkDB[0].Description;
             loi.StateCreated = loiDB.StateCreated;
             loi.StartDate = loiDB.StartDate;
             loi.StopDate = loiDB.StopDate;
@@ -36,12 +39,18 @@ namespace PD.API.Model.ExtensionMethods
             return(loi);
         }
 
-        public static List<LocationOfInterest> DbToWs(this List<LocationOfInterestDB> locationsOfInterestDB)
+        public static TypeOfWork DbToWs(this TypeOfWorkDB typeOfWorkDB)
+        {
+            Mapper.CreateMap<TypeOfWorkDB, TypeOfWork>();
+            return (Mapper.Map<TypeOfWorkDB, TypeOfWork>(typeOfWorkDB));
+        }
+
+        public static List<LocationOfInterest> DbToWs(this List<LocationOfInterestDB> locationsOfInterestDB, IDbConnection db)
         {
             var lois = new List<LocationOfInterest>();
             foreach (var loiDB in locationsOfInterestDB)
             {
-                var loi = loiDB.DbToWs();
+                var loi = loiDB.DbToWs(db);
                 lois.Add(loi);
             }
             return (lois);

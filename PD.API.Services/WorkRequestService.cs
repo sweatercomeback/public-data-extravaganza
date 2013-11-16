@@ -33,14 +33,14 @@ namespace PD.API.Services
 
         public List<LocationOfInterest> Get(LocationOfInterestListRequest request)
         {
-            List<LocationOfInterestDB> locationsOfInterestDB;
+            List<LocationOfInterest> ret;
 
             using (var db = DbConnectionFactory.OpenDbConnection())
             {
-                locationsOfInterestDB = db.Select<LocationOfInterestDB>();
+                List<LocationOfInterestDB> locationsOfInterestDB = db.Select<LocationOfInterestDB>();
+                ret = locationsOfInterestDB.DbToWs(db);
             }
 
-            List<LocationOfInterest> ret = locationsOfInterestDB.DbToWs();
             return ret;
         }
 
@@ -53,7 +53,7 @@ namespace PD.API.Services
                 var array = db.Select<LocationOfInterestDB>(m => m.LocationOfInterestID == request.LocationOfInterestID);
                 if (array.Count == 1)
                 {
-                    locationOfInterest = array[0].DbToWs();
+                    locationOfInterest = array[0].DbToWs(db);
                 }
             }
             return locationOfInterest;
