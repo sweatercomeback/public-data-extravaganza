@@ -51,8 +51,8 @@ namespace PD.API.Services
                 {
                     returnLog.OperationLog.Add("Populating TypeOfWork Table.");
 
-                    db.Insert(new TypeOfWork() { Description = "Road Construction"});
-                    db.Insert(new TypeOfWork() { Description = "Pot Hole" });
+                    db.Insert(new TypeOfWorkDB() { Description = "Road Construction"});
+                    db.Insert(new TypeOfWorkDB() { Description = "Pot Hole" });
                 }
             }
             else
@@ -66,17 +66,6 @@ namespace PD.API.Services
 
         #region Private Helper Methods
         
-        public static string GetApplicationVersion()
-        {
-            var ver = Assembly.GetExecutingAssembly().GetName().Version;
-            return (ver.ToString());
-        }
-
-        public static string IpToProperIp(string ip)
-        {
-            return ((String.CompareOrdinal(ip, "::1") == 0) ? "127.0.0.1" : ip);
-        }
-
         #endregion
     }
 }
