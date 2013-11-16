@@ -9,7 +9,7 @@ using ServiceStack.DataAnnotations;
 namespace PD.API.Model.DB
 {
     [Alias("Users")]
-    public class User
+    public class UserDB
     {
         [AutoIncrement]
         public int UserID { get; set; }
@@ -22,14 +22,14 @@ namespace PD.API.Model.DB
         public string Phone { get; set; }
         [StringLength(150)]
         public string EmailAddress { get; set; }
-        [References(typeof(Address))]
+        [References(typeof(AddressDB))]
         public int HomeAddressID { get; set; }
         public List<int> LocationsOfIntereset { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 
     [Alias("Addresses")]
-    public class Address
+    public class AddressDB
     {
         [AutoIncrement]
         public int AddressID { get; set; }
@@ -48,7 +48,7 @@ namespace PD.API.Model.DB
     }
 
     [Alias("LocationsOfInterest")]
-    public class LocationOfInterest
+    public class LocationOfInterestDB
     {
         [AutoIncrement]
         public int LocationOfInterestID { get; set; }
@@ -62,7 +62,7 @@ namespace PD.API.Model.DB
         [StringLength(50)]
         public string PanoID { get; set; }
         public List<int> UploadedImageIDs { get; set; }
-        [References(typeof(TypeOfWork))]
+        [References(typeof(TypeOfWorkDB))]
         public int TypeOfWork { get; set; }
         public bool StateCreated { get; set; }
         public DateTime StartDate { get; set; }
@@ -71,7 +71,7 @@ namespace PD.API.Model.DB
     }
 
     [Alias("ImagesOfInterest")]
-    public class ImageOfInterest
+    public class ImageOfInterestDB
     {
         [AutoIncrement]
         public int ImageID { get; set; }
@@ -82,7 +82,7 @@ namespace PD.API.Model.DB
     }
 
 
-    public class TypeOfWork
+    public class TypeOfWorkDB
     {
         [AutoIncrement]
         public int TypeOfWorkID { get; set; }
