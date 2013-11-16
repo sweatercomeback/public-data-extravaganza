@@ -1,7 +1,5 @@
-define(['plugins/router', 'durandal/app', 'knockout'], function (router, app, ko) {
-    
-
-	 ko.bindingHandlers.googleMap = {
+define(['plugins/router', 'durandal/app', 'knockout', 'services/dataRepo' ], function (router, app, ko, repo) {
+    ko.bindingHandlers.googleMap = {
 	    init: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
 	        var mapOptions = {
 	            center: new google.maps.LatLng(42.273752, -89.066849),
@@ -15,13 +13,11 @@ define(['plugins/router', 'durandal/app', 'knockout'], function (router, app, ko
 	    },
 	    update: function(element, valueAccessor, allBindings, viewModel, bindingContext) {
 	    }
-	};
-    
-    
-
+	}
+		
     return {
-        activate: function () {
-            
-    	}
+       activate: function(){
+       		;
+       }
     }
 });
