@@ -50,7 +50,7 @@ namespace PD.API.Services
 
             using (var db = DbConnectionFactory.OpenDbConnection())
             {
-                var array = db.Select<LocationOfInterestDB>(m => m.ID == request.ID);
+                var array = db.Select<LocationOfInterestDB>(m => m.LocationOfInterestID == request.LocationOfInterestID);
                 if (array.Count == 1)
                 {
                     locationOfInterest = array[0].DbToWs();

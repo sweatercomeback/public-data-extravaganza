@@ -14,18 +14,21 @@ namespace PD.API.Model.ExtensionMethods
         public static LocationOfInterest DbToWs(this LocationOfInterestDB loiDB)
         {
             var loi = new LocationOfInterest();
-            loi.ID = loiDB.ID;
+            loi.LocationOfInterestID = loiDB.LocationOfInterestID;
             loi.LocationDescription = loiDB.LocationDescription;
             loi.DescriptionOfWork = loiDB.DescriptionOfWork;
             loi.Position = new Position();
             loi.Position.Latitutde = loiDB.PositionLatitutde;
             loi.Position.Longitude = loiDB.PositionLongitude;
-            loi.POV = new PointOfView();
-            loi.POV.Heading = loiDB.PovHeading;
-            loi.POV.Pitch = loiDB.PovPitch;
+            if (loiDB.PovHeading != null)
+            {
+                loi.POV = new PointOfView();
+                loi.POV.Heading = loiDB.PovHeading.Value;
+                loi.POV.Pitch = loiDB.PovPitch.Value;
+            }
             loi.PanoID = loiDB.PanoID;
             loi.UploadedImageIDs = loiDB.UploadedImageIDs;
-            loi.TypeOfWork = loiDB.TypeOfWork;
+            loi.TypeOfWorkID = loiDB.TypeOfWorkID;
             loi.StateCreated = loiDB.StateCreated;
             loi.StartDate = loiDB.StartDate;
             loi.StopDate = loiDB.StopDate;

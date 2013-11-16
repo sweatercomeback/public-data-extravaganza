@@ -54,8 +54,8 @@ namespace PD.API.Services
                 {
                     returnLog.OperationLog.Add("Populating TypeOfWork Table.");
 
-                    db.Insert(new TypeOfWorkDB() { Description = "Road Construction"});
-                    db.Insert(new TypeOfWorkDB() { Description = "Pot Hole" });
+                    //db.Insert(new TypeOfWorkDB() { Description = "Road Construction"});
+                    //db.Insert(new TypeOfWorkDB() { Description = "Pot Hole" });
 
 
                 }
