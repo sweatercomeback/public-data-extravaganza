@@ -9,6 +9,7 @@ using PD.API.Services;
 using PD.API.Services.Helpers;
 using ServiceStack.Configuration;
 using ServiceStack.OrmLite;
+using ServiceStack.ServiceInterface.Cors;
 using ServiceStack.WebHost.Endpoints;
 
 
@@ -34,6 +35,8 @@ namespace PD.API.Web
                         { "Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS" },
                     },
             });
+
+            Plugins.Add(new CorsFeature(allowedHeaders: "Content-Type, Authorization, Session-Id"));
 
             ServiceStack.Text.JsConfig.EmitCamelCaseNames = true;
 
