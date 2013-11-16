@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ServiceStack.ServiceHost;
 
 namespace PD.API.Model.WS
@@ -13,16 +10,17 @@ namespace PD.API.Model.WS
 
     [Api("GET a Location of Interest.")]
     [Route("/LocationOfInterest", "GET")]
+    [Route("/LocationOfInterest", "GET")]
     public class LocationOfInterestRequest : IReturn<LocationOfInterest>
     {
-        public int LocationOfInterestID { get; set; }
+        public int ID { get; set; }
     }
       
     [Api("PUT, or POST a location of interest.")]
     [Route("/Config", "GET")]
     public class LocationOfInterest : IReturn<LocationOfInterest>
     {
-        public int LocationOfInterestID { get; set; }
+        public int ID { get; set; }
         public string LocationDescription { get; set; }
         public string DescriptionOfWork { get; set; }
         public Position Position { get; set; }

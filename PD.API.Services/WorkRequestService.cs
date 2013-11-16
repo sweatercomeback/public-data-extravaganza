@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using PD.API.Model;
 using PD.API.Model.DB;
 using PD.API.Model.ExtensionMethods;
 using PD.API.Model.WS;
@@ -12,7 +8,6 @@ using PD.API.Services.Filters;
 using PD.API.Services.Helpers;
 using ServiceStack.OrmLite;
 using ServiceStack.ServiceInterface;
-using LocationOfInterest = PD.API.Model.DB.LocationOfInterestDB;
 
 namespace PD.API.Services
 {
@@ -36,15 +31,32 @@ namespace PD.API.Services
 
         #region Public API Methods
 
-        public List<LocationOfInterest> Any(LocationOfInterestListRequest request)
+        public List<LocationOfInterest> Get(LocationOfInterestListRequest request)
         {
-            List<LocationOfInterestDB> locationsOfInterest;
+            List<LocationOfInterestDB> locationsOfInterestDB;
 
             using (var db = DbConnectionFactory.OpenDbConnection())
             {
-                locationsOfInterest = db.Select<LocationOfInterestDB>();
+                locationsOfInterestDB = db.Select<LocationOfInterestDB>();
             }
-            return locationsOfInterest;
+
+            List<LocationOfInterest> ret = locationsOfInterestDB.DbToWs();
+            return ret;
+        }
+
+        public LocationOfInterest Get(LocationOfInterestRequest request)
+        {
+            LocationOfInterest locationOfInterest = null;
+
+            using (var db = DbConnectionFactory.OpenDbConnection())
+            {
+                var array = db.Select<LocationOfInterestDB>(m => m.LocationOfInterestID == request.LocationOfInterestID);
+                if (array.Count == 1)
+                {
+                    locationOfInterest = array[0].DbToWs();
+                }
+            }
+            return locationOfInterest;
         }
 
         #endregion
