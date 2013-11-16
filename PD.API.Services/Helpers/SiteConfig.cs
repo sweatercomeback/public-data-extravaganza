@@ -14,6 +14,7 @@ namespace PD.API.Services.Helpers
         public string AppID { get; private set; }
         public string SodaHost { get; set; }
         public string SodaDataSet { get; private set; }
+        public string ServiceRequestDataSet { get; private set; }
 
         public SiteConfig(IResourceManager resources)
         {
@@ -40,6 +41,11 @@ namespace PD.API.Services.Helpers
                 ThrowConfigException("SodaDataSet");
             }
 
+            ServiceRequestDataSet = resources.GetString("ServiceRequestDataSet");
+            if (AppID == null)
+            {
+                ThrowConfigException("ServiceRequestDataSet");
+            }
 
         }
 
