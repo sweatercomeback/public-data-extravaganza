@@ -1,0 +1,12 @@
+<div class="container">
+  <h1></h1>
+  <p>Top Issues</p>
+  <ul>
+      <li ng-repeat="thing in serviceRequests">
+      {{thing.Address}}
+      {{thing.Description}}
+      Up: {{thing.UpVotes}}
+      Down: {{thing.DownVotes}}
+      </li>
+  </ul>
+</div>
