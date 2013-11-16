@@ -5,7 +5,7 @@ var speakUpApp = angular.module('speakUpApp', ['ngSanitize'])
     $routeProvider
       .when('/', {
           templateUrl: 'views/main.html',
-          controller: 'MainCtrl'
+          controller: 'EventController'
       })
       .otherwise({
           redirectTo: '/'
