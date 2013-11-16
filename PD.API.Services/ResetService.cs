@@ -50,8 +50,18 @@ namespace PD.API.Services
                 using (var db = DbConnectionFactory.OpenDbConnection())
                 {
                     db.CreateTable<Address>(true);
-
+                    returnLog.OperationLog.Add("Created Address.");
+                    db.CreateTable<TypeOfWork>(true);
+                    returnLog.OperationLog.Add("Created TypeOfWork.");
+                    db.CreateTable<ImageOfInterest>(true);
+                    returnLog.OperationLog.Add("Created ImageOfInterest.");
+                    db.CreateTable<LocationOfInterest>(true);
+                    returnLog.OperationLog.Add("Created LocationOfInterest.");
                     db.CreateTable<User>(true);
+                    returnLog.OperationLog.Add("Created User.");
+
+                    db.Insert(new TypeOfWork() { Description = "Road Construction"});
+                    db.Insert(new TypeOfWork() { Description = "Pot Hole" });
                 }
             }
             else

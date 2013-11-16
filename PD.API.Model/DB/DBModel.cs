@@ -24,8 +24,7 @@ namespace PD.API.Model.DB
         public string EmailAddress { get; set; }
         [References(typeof(Address))]
         public int HomeAddressID { get; set; }
-        [References(typeof(Address))]
-        public int WorkAddressID { get; set; }
+        public List<int> LocationsOfIntereset { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 
@@ -46,5 +45,48 @@ namespace PD.API.Model.DB
         [StringLength(20)]
         public string Zip { get; set; }
         public DateTime CreatedOn { get; set; }
+    }
+
+    [Alias("LocationsOfInterest")]
+    public class LocationOfInterest
+    {
+        [AutoIncrement]
+        public int LocationOfInterestID { get; set; }
+        [StringLength(500)]
+        public string LocationDescription { get; set; }
+        public string DescriptionOfWork { get; set; }
+        public double PositionLatitutde { get; set; }
+        public double PositionLongitude { get; set; }
+        public double PovHeading { get; set; }
+        public double PovPitch { get; set; }
+        [StringLength(50)]
+        public string PanoID { get; set; }
+        public List<int> UploadedImageIDs { get; set; }
+        [References(typeof(TypeOfWork))]
+        public int TypeOfWork { get; set; }
+        public bool StateCreated { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime StopDate { get; set; }
+        public DateTime CreatedOn { get; set; }
+    }
+
+    [Alias("ImagesOfInterest")]
+    public class ImageOfInterest
+    {
+        [AutoIncrement]
+        public int ImageID { get; set; }
+        public string Description { get; set; }
+        [StringLength(5)]
+        public string FileType { get; set; }
+        public DateTime CreatedOn { get; set; }
+    }
+
+
+    public class TypeOfWork
+    {
+        [AutoIncrement]
+        public int TypeOfWorkID { get; set; }
+        [StringLength(20)]
+        public string Description { get; set; }
     }
 }

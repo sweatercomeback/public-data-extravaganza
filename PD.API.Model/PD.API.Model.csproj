@@ -52,13 +52,14 @@
     <Compile Include="..\SolutionInfo.cs">
       <Link>SolutionInfo.cs</Link>
     </Compile>
-    <Compile Include="ConfigRequests.cs" />
+    <Compile Include="WS\ConfigRequests.cs" />
     <Compile Include="ExtensionMethods\GuidExtensions.cs" />
     <Compile Include="ExtensionMethods\StringExtensions.cs" />
     <Compile Include="ExtensionMethods\UriExtensions.cs" />
     <Compile Include="DB\DBModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResetRequests.cs" />
+    <Compile Include="WS\ResetRequests.cs" />
+    <Compile Include="WS\WorkRequests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
