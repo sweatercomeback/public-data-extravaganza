@@ -8,3 +8,8 @@ C:\RockfordProject\public-data-extravaganza\SodaApiTest\SodaApiTest\bin\SodaApiT
 C:\RockfordProject\public-data-extravaganza\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.csprojResolveAssemblyReference.cache
 C:\RockfordProject\public-data-extravaganza\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.dll
 C:\RockfordProject\public-data-extravaganza\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.pdb
+C:\Github Projects\RockfordMeetupThingy\public-data-extravaganza\SodaApiTest\SodaApiTest\bin\SodaApiTest.dll
+C:\Github Projects\RockfordMeetupThingy\public-data-extravaganza\SodaApiTest\SodaApiTest\bin\SodaApiTest.pdb
+C:\Github Projects\RockfordMeetupThingy\public-data-extravaganza\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.csprojResolveAssemblyReference.cache
+C:\Github Projects\RockfordMeetupThingy\public-data-extravaganza\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.dll
+C:\Github Projects\RockfordMeetupThingy\public-data-extravaganza\SodaApiTest\SodaApiTest\obj\Debug\SodaApiTest.pdb

@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReadData.aspx" />
+    <Content Include="ServiceRequestData.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +68,7 @@
     <Compile Include="Application\QueryBuilder.cs" />
     <Compile Include="Application\RoadContructionModel.cs" />
     <Compile Include="Application\Row.cs" />
+    <Compile Include="Application\ServiceRequestModel.cs" />
     <Compile Include="Application\Soda2Client.cs" />
     <Compile Include="Application\Soda2Url.cs" />
     <Compile Include="Application\SodaException.cs" />
@@ -77,6 +79,13 @@
     </Compile>
     <Compile Include="ReadData.aspx.designer.cs">
       <DependentUpon>ReadData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceRequestData.aspx.cs">
+      <DependentUpon>ServiceRequestData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ServiceRequestData.aspx.designer.cs">
+      <DependentUpon>ServiceRequestData.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
