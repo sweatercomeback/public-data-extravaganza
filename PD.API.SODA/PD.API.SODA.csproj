@@ -53,6 +53,7 @@
     <Compile Include="ReadDataFromSoda.cs" />
     <Compile Include="RoadContructionModel.cs" />
     <Compile Include="Row.cs" />
+    <Compile Include="ServiceRequestModel.cs" />
     <Compile Include="Soda2Client.cs" />
     <Compile Include="Soda2Url.cs" />
     <Compile Include="SodaException.cs" />
