@@ -202,6 +202,8 @@ module.exports = function (grunt) {
                     src: [
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
+                        '<%= yeoman.dist %>/views/{,*/}*.html',
+                        '<%= yeoman.dist %>/viewmodels/{,*/}*.js',
                         '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
                         '<%= yeoman.dist %>/styles/fonts/{,*/}*.*'
                     ]
@@ -291,6 +293,8 @@ module.exports = function (grunt) {
                         '.htaccess',
                         'images/{,*/}*.{webp,gif}',
                         'styles/fonts/{,*/}*.*',
+                        'views/{,*/}*.html',
+                        'viewmodels/{,*/}*.js',
                         'bower_components/sass-bootstrap/fonts/*.*'
                     ]
                 }]
