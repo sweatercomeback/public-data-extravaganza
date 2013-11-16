@@ -55,6 +55,7 @@ namespace PD.API.Services
             {
                 using (var db = DbConnectionFactory.OpenDbConnection())
                 {
+
                    returnLog.OperationLog.Add("Inserting DataSet of New Location");
                  
                     db.Insert(new TypeOfWorkDB() { Description = "Road Construction"});
@@ -65,7 +66,7 @@ namespace PD.API.Services
                        locationOfInterestDB.PositionLatitutde = data.Latitude;
                        locationOfInterestDB.PositionLongitude = data.Longitude;
                        locationOfInterestDB.LocationDescription = data.Location;
-                       locationOfInterestDB.TypeOfWork = types[0].TypeOfWorkID;
+                       locationOfInterestDB.TypeOfWork = types[0].ID;
                        locationOfInterestDB.StateCreated = false;
                        locationOfInterestDB.DescriptionOfWork = data.Description;
                        locationOfInterestDB.CreatedOn = DateTime.Now;
@@ -75,6 +76,7 @@ namespace PD.API.Services
                        db.Insert(locationOfInterestDB);
                        //collection.Add(locationOfInterestDB);
                    }
+
                 }
             }
             else

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ServiceStack.DataAnnotations;
 
 namespace PD.API.Model.DB
@@ -12,7 +9,7 @@ namespace PD.API.Model.DB
     public class UserDB
     {
         [AutoIncrement]
-        public int UserID { get; set; }
+        public int ID { get; set; }
         [Index(true)]
         [StringLength(50)]
         public string UserName { get; set; }
@@ -32,7 +29,7 @@ namespace PD.API.Model.DB
     public class AddressDB
     {
         [AutoIncrement]
-        public int AddressID { get; set; }
+        public int ID { get; set; }
         [StringLength(50)]
         public string Address1 { get; set; }
         [StringLength(50)]
@@ -51,7 +48,7 @@ namespace PD.API.Model.DB
     public class LocationOfInterestDB
     {
         [AutoIncrement]
-        public int LocationOfInterestID { get; set; }
+        public int ID { get; set; }
         [StringLength(500)]
         public string LocationDescription { get; set; }
         public string DescriptionOfWork { get; set; }
@@ -67,6 +64,7 @@ namespace PD.API.Model.DB
         public bool StateCreated { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime StopDate { get; set; }
+        public int UpVote { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 
@@ -74,7 +72,7 @@ namespace PD.API.Model.DB
     public class ImageOfInterestDB
     {
         [AutoIncrement]
-        public int ImageID { get; set; }
+        public int ID { get; set; }
         public string Description { get; set; }
         [StringLength(5)]
         public string FileType { get; set; }
@@ -85,7 +83,7 @@ namespace PD.API.Model.DB
     public class TypeOfWorkDB
     {
         [AutoIncrement]
-        public int TypeOfWorkID { get; set; }
+        public int ID { get; set; }
         [StringLength(20)]
         public string Description { get; set; }
     }

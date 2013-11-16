@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.2.1.0\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -74,6 +80,7 @@
       <Link>SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="ConfigService.cs" />
+    <Compile Include="PopulateDataMockService.cs" />
     <Compile Include="PopulateDataRoadConstructionService.cs" />
     <Compile Include="PopulateDataServiceRequestService.cs" />
     <Compile Include="ResetService.cs" />

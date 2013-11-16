@@ -4,6 +4,14 @@ using ServiceStack.ServiceHost;
 namespace PD.API.Model
 {
     [Api("GET or POST a reset command to the server.")]
+    [Route("/PopulateDataMock", "GET")]
+    [Route("/PopulateDataMock/{PopulateKey}", "GET")]
+    public class PopulateDataMockRequest : IReturn<PopulateDataReturn>
+    {
+        public string PopulateKey { get; set; }
+    }
+
+    [Api("GET or POST a reset command to the server.")]
     [Route("/PopulateDataRoadConstruction", "GET")]
     [Route("/PopulateDataRoadConstruction/{PopulateKey}", "GET")]
     public class PopulateDataRoadConstructionRequest : IReturn<PopulateDataReturn>
@@ -12,8 +20,8 @@ namespace PD.API.Model
     }
 
     [Api("GET or POST a reset command to the server.")]
-    [Route("/PopulateDataServiceRequest", "GET, POST")]
-    [Route("/PopulateDataServiceRequest/{PopulateKey}", "GET, POST")]
+    [Route("/PopulateDataServiceRequest", "GET")]
+    [Route("/PopulateDataServiceRequest/{PopulateKey}", "GET")]
     public class PopulateDataServiceRequest : IReturn<PopulateDataReturn>
     {
         public string PopulateKey { get; set; }
