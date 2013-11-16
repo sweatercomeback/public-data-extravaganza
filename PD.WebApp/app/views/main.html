@@ -6,15 +6,20 @@
     Order by:
     <select ng-model="sortorder" class="input-small">
         <option selected value="name">Name</option>
+        <option selected value="category">Category</option>
         <option value="-upVoteCount">Votes</option>
     </select>
 
     Show:
-    <select ng-model="query.level" class="input-small">
+    <select ng-model="query.category" class="input-small">
         <option selected value="">All</option>
-        <option value="introductory">Introductory</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="advanced">Advanced</option>
+        <option value="clean ditch">Clean Ditch</option>
+        <option value="patch pothole">Patch Pothole</option>
+        <option value="prune tree">Prune Tree</option>
+        <option value="visibility issues">Visibility Issues</option>
+        <option value="street light">Street Light</option>
+        <option value="sweep road">Sweep Road</option>
+        <option value="graffiti">Graffiti</option>
     </select>
     <br /><br />
 
@@ -33,11 +38,12 @@
                     <i class="glyphicon glyphicon-chevron-down"></i>
                 </div>
             </div>
-            <div class="panel col-sm-9 col-sm-offset-1">
+            <div class="panel col-sm-10 col-sm-offset-1">
                 <div class="panel-body">
                     <h4 class="well-title">{{session.name}}</h4>
                     <h6 style="margin-top: -8px;">{{session.category}}</h6>
-                    <span>Address: {{session.location.address}}, {{session.location.city}} {{session.location.state}}</span>
+                    <p>{{session.description}}</p>
+                    <span>Location: {{session.location.address}}, {{session.location.city}} {{session.location.state}}</span>
                 </div>
             </div>
         </div>
