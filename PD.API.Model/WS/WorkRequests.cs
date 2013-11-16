@@ -3,9 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ServiceStack.ServiceHost;
 
 namespace PD.API.Model.WS
 {
+    [Api("GET all Locations of Interest.")]
+    [Route("/LocationsOfInterest", "GET")]
+    public class LocationOfInterestListRequest : IReturn<List<LocationOfInterest>> { }
+
+
+    public class LocationOfInterestRequest : IReturn<LocationOfInterest>
+    {
+        public int LocationOfInterestID { get; set; }
+    }
+        
+        
+    [Api("GET, PUT, or POST a location of interest.")]
+    [Route("/Config", "GET")]
     public class LocationOfInterest
     {
         public int LocationOfInterestID { get; set; }
