@@ -7,6 +7,10 @@ angular.module('PD.WebAppApp', [])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/submit', {
+        templateUrl: 'views/submit.html',
+        controller: 'SubmitCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
