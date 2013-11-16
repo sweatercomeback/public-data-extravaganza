@@ -71,12 +71,14 @@
       <Link>SolutionInfo.cs</Link>
     </Compile>
     <Compile Include="ConfigService.cs" />
+    <Compile Include="PopulateDataService.cs" />
     <Compile Include="ResetService.cs" />
     <Compile Include="Filters\RecordFilters.cs" />
     <Compile Include="Helpers\LogHelper.cs" />
     <Compile Include="Helpers\SiteConfig.cs" />
     <Compile Include="Helpers\XmlSerializationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WorkRequestService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

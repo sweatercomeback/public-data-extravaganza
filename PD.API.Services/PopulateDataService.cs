@@ -19,9 +19,9 @@ namespace PD.API.Services
 {
     [RecordRequestFilter(ServiceName)]
     [RecordResponseFilter(ServiceName)]
-    public class Resetervice : Service
+    public class PopulateDataService : Service
     {
-        public const string ServiceName = "Reset Service";
+        public const string ServiceName = "Populate Data Service";
 
         public IDbConnectionFactory DbConnectionFactory { get; set; }
 
@@ -37,28 +37,22 @@ namespace PD.API.Services
 
         #region Public API Methods
 
-        public ResetReturn Any(ResetRequest request)
+        public PopulateDataReturn Any(PopulateDataRequest request)
         {
-            var returnLog = new ResetReturn();
+            var returnLog = new PopulateDataReturn();
 
             returnLog.OperationLog = new List<string>();
 
-            returnLog.OperationLog.Add("Config reset started on " + DateTime.Now.ToShortTimeString() + ".");
+            returnLog.OperationLog.Add("Populate Data started on " + DateTime.Now.ToShortTimeString() + ".");
 
-            if (request.ResetKey.IsEqualWithCase("PrettyPleaseResetTheSystemAndDestroyAllData123"))
+            if (request.PopulateKey.IsEqualWithCase("PrettyPleasePopulateTheSystem"))
             {
                 using (var db = DbConnectionFactory.OpenDbConnection())
                 {
-                    db.CreateTable<AddressDB>(true);
-                    returnLog.OperationLog.Add("Created Address.");
-                    db.CreateTable<TypeOfWorkDB>(true);
-                    returnLog.OperationLog.Add("Created TypeOfWork.");
-                    db.CreateTable<ImageOfInterestDB>(true);
-                    returnLog.OperationLog.Add("Created ImageOfInterest.");
-                    db.CreateTable<LocationOfInterestDB>(true);
-                    returnLog.OperationLog.Add("Created LocationOfInterest.");
-                    db.CreateTable<UserDB>(true);
-                    returnLog.OperationLog.Add("Created User.");
+                    returnLog.OperationLog.Add("Populating TypeOfWork Table.");
+
+                    db.Insert(new TypeOfWorkDB() { Description = "Road Construction"});
+                    db.Insert(new TypeOfWorkDB() { Description = "Pot Hole" });
                 }
             }
             else
@@ -72,8 +66,6 @@ namespace PD.API.Services
 
         #region Private Helper Methods
         
-        
-
         #endregion
     }
 }
