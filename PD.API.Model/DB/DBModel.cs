@@ -64,6 +64,7 @@ namespace PD.API.Model.DB
         public bool StateCreated { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime StopDate { get; set; }
+        public int UpVote { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 

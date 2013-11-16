@@ -37,7 +37,7 @@ namespace PD.API.Services
 
         #region Public API Methods
 
-        public PopulateDataReturn Get(PopulateDataRoadConstructionRequest request)
+        public PopulateDataReturn Get(PopulateDataMockRequest request)
         {
             var returnLog = new PopulateDataReturn();
 
@@ -54,8 +54,8 @@ namespace PD.API.Services
                 {
                     returnLog.OperationLog.Add("Populating TypeOfWork Table.");
 
-                    db.Insert(new TypeOfWorkDB() { Description = "Road Construction"});
-                    db.Insert(new TypeOfWorkDB() { Description = "Pot Hole" });
+                    //db.Insert(new TypeOfWorkDB() { Description = "Road Construction"});
+                    //db.Insert(new TypeOfWorkDB() { Description = "Pot Hole" });
                 }
             }
             else

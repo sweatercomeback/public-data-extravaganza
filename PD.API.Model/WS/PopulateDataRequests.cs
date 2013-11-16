@@ -6,7 +6,7 @@ namespace PD.API.Model
     [Api("GET or POST a reset command to the server.")]
     [Route("/PopulateDataMock", "GET")]
     [Route("/PopulateDataMock/{PopulateKey}", "GET")]
-    public class PopulateDataMock : IReturn<PopulateDataReturn>
+    public class PopulateDataMockRequest : IReturn<PopulateDataReturn>
     {
         public string PopulateKey { get; set; }
     }
