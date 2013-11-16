@@ -1,7 +1,6 @@
 'use strict';
 
-speakUpApp
-  .controller('SubmitController', function ($scope) {
+speakUpApp.controller('SubmitController', function ($scope) {
   	 $scope.address = '';
   	 $scope.serviceCategory = '';
   	 $scope.description = '';

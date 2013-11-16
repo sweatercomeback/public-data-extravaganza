@@ -3,7 +3,7 @@
 
 	var module = angular.module('speakUpApp', []);
 
-	Namespace.create('speakUpApp');
+
 
 	var useMocks = true;
 
