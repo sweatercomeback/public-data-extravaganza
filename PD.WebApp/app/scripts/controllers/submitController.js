@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('PD.WebAppApp')
-  .controller('SubmitCtrl', function ($scope) {
+speakUpApp
+  .controller('SubmitController', function ($scope) {
   	 $scope.address = '';
   	 $scope.serviceCategory = '';
   	 $scope.description = '';
