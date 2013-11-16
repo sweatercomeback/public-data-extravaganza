@@ -45,19 +45,36 @@ namespace PD.API.Services
 
             returnLog.OperationLog.Add("Populate Data started on " + DateTime.Now.ToShortTimeString() + ".");
 
-            var hostId = Config.SodaHost;
+            var host= Config.SodaHost;
             var dataSetId = Config.SodaDataSet;
 
+            var dataSet = PD.API.SODA.ReadDataFromSoda.RoadContructionData(host, dataSetId);
+
+           // var collection = new List<LocationOfInterestDB>();
             if (request.PopulateKey.IsEqualWithCase("PrettyPleasePopulateTheSystem"))
             {
                 using (var db = DbConnectionFactory.OpenDbConnection())
                 {
-                    returnLog.OperationLog.Add("Populating TypeOfWork Table.");
-
-                    db.Insert(new TypeOfWork() { Description = "Road Construction"});
-                    db.Insert(new TypeOfWork() { Description = "Pot Hole" });
-
-
+                   returnLog.OperationLog.Add("Inserting DataSet of New Location");
+                 
+                    db.Insert(new TypeOfWorkDB() { Description = "Road Construction"});
+                    var types = db.Select<TypeOfWorkDB>(m => m.Description == "Road Construction");
+                    foreach (var data in dataSet)
+                   {
+                       var locationOfInterestDB = new LocationOfInterestDB();
+                       locationOfInterestDB.PositionLatitutde = data.Latitude;
+                       locationOfInterestDB.PositionLongitude = data.Longitude;
+                       locationOfInterestDB.LocationDescription = data.Location;
+                       locationOfInterestDB.TypeOfWork = types[0].TypeOfWorkID;
+                       locationOfInterestDB.StateCreated = false;
+                       locationOfInterestDB.DescriptionOfWork = data.Description;
+                       locationOfInterestDB.CreatedOn = DateTime.Now;
+                       locationOfInterestDB.StartDate = DateTime.Now;
+                       locationOfInterestDB.StopDate = DateTime.Now;
+                    
+                       db.Insert(locationOfInterestDB);
+                       //collection.Add(locationOfInterestDB);
+                   }
                 }
             }
             else
