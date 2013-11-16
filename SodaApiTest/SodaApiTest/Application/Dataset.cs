@@ -29,6 +29,8 @@ namespace SodaApiTest.Application
             this.rowsUpdatedAt = properties.rowsUpdatedAt;
             this.viewLastModified = properties.viewLastModified;
             this.columns = properties.columns;
+            this.models = properties.models;
+            
         }
         public R[] query(string q)
         {
@@ -66,5 +68,7 @@ namespace SodaApiTest.Application
         public Column[] columns { get; protected set; }
 
         public Soda2Client client { get; protected set; }
+
+        public RoadContructionModel[] models { get; protected set; }
     }
 }

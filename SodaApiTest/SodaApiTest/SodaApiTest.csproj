@@ -65,6 +65,7 @@
     <Compile Include="Application\Dataset.cs" />
     <Compile Include="Application\DatasetProperties.cs" />
     <Compile Include="Application\QueryBuilder.cs" />
+    <Compile Include="Application\RoadContructionModel.cs" />
     <Compile Include="Application\Row.cs" />
     <Compile Include="Application\Soda2Client.cs" />
     <Compile Include="Application\Soda2Url.cs" />

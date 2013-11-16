@@ -35,5 +35,7 @@ namespace SodaApiTest.Application
         public long viewLastModified { get; set; }
         
         public Column[] columns { get; set; }
+
+        public RoadContructionModel[] models { get; set; }
     }
 }

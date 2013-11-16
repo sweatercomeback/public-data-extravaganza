@@ -14,7 +14,7 @@ namespace SodaApiTest.Application
         public string username { get; set; }
         public string password { private get; set; }
 
-        public Soda2Client(string username, string password, string appToken) 
+        public Soda2Client(string username, string password, string appToken)
         {
             this.username = username;
             this.password = password;
@@ -66,7 +66,7 @@ namespace SodaApiTest.Application
         {
             var request = createWebRequest(uri);
             request.Method = method;
-            
+
 
             if (body != null)
             {
@@ -92,7 +92,7 @@ namespace SodaApiTest.Application
 
             try
             {
-                using (var response = request.GetResponse()) 
+                using (var response = request.GetResponse())
                 {
                     var test = response.GetResponseStream();
                     var thing = deserialize<B>(response.GetResponseStream());
@@ -102,7 +102,8 @@ namespace SodaApiTest.Application
             catch (WebException wex) { throw tryReadSodaException(wex); }
         }
 
-        public Exception tryReadSodaException(WebException wex){
+        public Exception tryReadSodaException(WebException wex)
+        {
             if (wex.Response != null)
             {
                 var stream = wex.Response.GetResponseStream();
