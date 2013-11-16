@@ -49,15 +49,15 @@ namespace PD.API.Services
             {
                 using (var db = DbConnectionFactory.OpenDbConnection())
                 {
-                    db.CreateTable<Address>(true);
+                    db.CreateTable<AddressDB>(true);
                     returnLog.OperationLog.Add("Created Address.");
-                    db.CreateTable<TypeOfWork>(true);
+                    db.CreateTable<TypeOfWorkDB>(true);
                     returnLog.OperationLog.Add("Created TypeOfWork.");
-                    db.CreateTable<ImageOfInterest>(true);
+                    db.CreateTable<ImageOfInterestDB>(true);
                     returnLog.OperationLog.Add("Created ImageOfInterest.");
-                    db.CreateTable<LocationOfInterest>(true);
+                    db.CreateTable<LocationOfInterestDB>(true);
                     returnLog.OperationLog.Add("Created LocationOfInterest.");
-                    db.CreateTable<User>(true);
+                    db.CreateTable<UserDB>(true);
                     returnLog.OperationLog.Add("Created User.");
                 }
             }
@@ -72,16 +72,7 @@ namespace PD.API.Services
 
         #region Private Helper Methods
         
-        public static string GetApplicationVersion()
-        {
-            var ver = Assembly.GetExecutingAssembly().GetName().Version;
-            return (ver.ToString());
-        }
-
-        public static string IpToProperIp(string ip)
-        {
-            return ((String.CompareOrdinal(ip, "::1") == 0) ? "127.0.0.1" : ip);
-        }
+        
 
         #endregion
     }
