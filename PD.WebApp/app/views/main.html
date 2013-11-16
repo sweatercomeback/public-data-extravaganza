@@ -39,7 +39,11 @@
                 </div>
             </div>
             <div class="panel col-sm-10 col-sm-offset-1">
-                <div class="panel-body">
+                <div class="panel-body clearfix">
+                    <div class="service-image" init-fancybox="" ng-repeat="image in session.images">
+                        <a href="{{image.url}}" class="fancybox"><img src="{{image.url}}"></a>
+                    </div>
+
                     <h4 class="well-title">{{session.name}}</h4>
                     <h6 style="margin-top: -8px;">{{session.category}}</h6>
                     <p>{{session.description}}</p>

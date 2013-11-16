@@ -19,3 +19,16 @@ speakUpApp.controller('EventController',
 
     }
 );
+
+
+speakUpApp.directive('initFancybox', function () {
+    return function (scope, element, attrs) {
+        scope.$watch(attrs.initFancybox, function () {
+            // Fancybox
+            console.log(element.find('.fancybox').attr('href'));
+            element.find('.fancybox').fancybox({
+                
+            });
+        });
+    }
+});
