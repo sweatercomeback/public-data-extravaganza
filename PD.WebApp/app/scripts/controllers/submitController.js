@@ -9,6 +9,9 @@ speakUpApp.controller('SubmitController', function ($scope, dataRepository) {
   	 $scope.description = '';
   	 $scope.latitude = '';
   	 $scope.longitude = '';
+     $scope.heading = '';
+     $scope.pitch = '';
+     $scope.panoID = '';
   	 $scope.serviceCategories = dataRepository.fetchServiceCategories();
 
   	 
@@ -51,10 +54,37 @@ speakUpApp.directive('initGoogleMaps', function () {
                   map: map
               });
               markersArr.push(marker);
+            });
 
-              //alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() ); 
+            //Street View
+            var panorama = map.getStreetView();
+            google.maps.event.addListener(panorama, 'pano_changed', function() {
+                $scope.panoID = panorama.getPano();
+
+                $scope.$apply();
+            });
+
+            google.maps.event.addListener(panorama, 'position_changed', function() {
+              var pos = panorama.getPosition();
+              
+              $scope.latitude = pos.lat();
+              $scope.longitude = pos.lng();
+
+              $scope.$apply();
 
             });
+
+            google.maps.event.addListener(panorama, 'pov_changed', function() {
+              var pov = panorama.getPov();
+
+              $scope.heading = pov.heading;
+              $scope.pitch = pov.pitch;
+
+              $scope.$apply();
+            });
+
+
+              //alert( "Latitude: "+event.latLng.lat()+" "+", longitude: "+event.latLng.lng() );
         });
     }
 });
